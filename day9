@@ -1,0 +1,148 @@
+package day9;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Product {
+    private String prodName;
+    private int price;
+    private int qty;
+
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "prodName='" + prodName + '\'' +
+                ", price=" + price +
+                ", qty=" + qty +
+                '}';
+    }
+
+    public Product(String prodName, int price, int qty) {
+        this.prodName = prodName;
+        this.price = price;
+        this.qty = qty;
+    }
+
+    public String getProdName() {
+        return prodName;
+    }
+
+    public void setProdName(String prodName) {
+        this.prodName = prodName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+}
+
+
+
+public class Product1{
+    static Scanner sc = new Scanner(System.in);
+    static int choice=0;
+    static List<Product> prodList = new ArrayList<Product>();
+    public static void main(String[] args) {
+
+        do {
+        System.out.println("Choose from below option to perform operation");
+        System.out.println("1.create product");
+        System.out.println("2.update product");
+        System.out.println("3.search product");
+        System.out.println("4.display product");
+        System.out.println("exitops(press -1)");
+
+        choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                createProd();
+                break;
+
+            case 2:
+                updateProd();
+                break;
+
+            case 3:
+                searchProd();
+                break;
+
+            case 4:
+                displayall();
+                break;
+
+                case 5:
+                exitops();
+            break;
+        }
+    }while(choice != -1);
+    }
+
+    private static void displayall() {
+        System.out.println(prodList);
+    }
+
+    private static void exitops() {
+    }
+
+    private static void searchProd() {
+        System.out.println("enter product u want details");
+       String name= sc.next();
+        for(int i=1;i<prodList.size();i++){
+            Product st=prodList.get(i);
+            if(st.getProdName()==name){
+                System.out.println(st);
+            }
+        }
+    }
+
+    public static void updateProd() {
+        System.out.println("enter productyou wanna update");
+        String name1 = sc.next();
+        System.out.println("enter updated product name");
+        String name = sc.next();
+        System.out.println("enter price");
+        int price= sc.nextInt();
+        System.out.println("enter no of qty");
+        int qty= sc.nextInt();
+        for (int i = 0; i < prodList.size(); i++) {
+            Product std = prodList.get(i);
+            if (std.getProdName()==name1) {
+                std.setProdName(name);
+                std.setPrice(price);
+                std.setQty(qty);
+
+            }
+
+        }
+    }
+
+    private static void createProd() {
+        System.out.println("enter product name");
+        String name=sc.next();
+
+        System.out.println("enter price");
+        int price=sc.nextInt();
+
+        System.out.println("enter qty");
+        int qty=sc.nextInt();
+
+
+        Product newProd = new Product(name,price,qty);
+        prodList.add(newProd);
+    }
+}
