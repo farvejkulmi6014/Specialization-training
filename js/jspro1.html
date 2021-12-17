@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+obj = new Object();
+obj.name= "farvej";
+obj.age= 22;
+</script>
+
+
+<script>
+    function Emp(name, age,salary){
+        this.name=name;
+        this.age=age;
+        this.salary=salary;
+
+    }
+</script>
+
+<script>
+
+var e1={'name':'puspa', 'age':22, 'salary':250000};
+var e2={'name':'sonusuman', 'age':45, 'salary':560000};
+
+</script>
+ 
+<body>
+    <h1>firsttype of object declaration</h1>
+    <script>
+    document.write('<h2>first method</h2>')
+            document.write('name is' + obj.name);
+            document.write('<br> age '+ obj.age);
+
+
+
+    </script>
+   
+   
+
+   <h1>Second type of object creation</h1>
+   <script>
+   var emp =new Emp('sonu',21,25000)
+   var emp1 =new Emp('suman',21,20000)
+   document.write('<h2>By using object constructor</h2>')
+   document.write('Name :'+emp.name);
+   document.write('<br>Age :'+emp.age)
+   document.write('<br>Salary :'+emp.salary)
+   document.write('<br>Name :'+emp1.name);
+   document.write('<br>Age :'+emp1.age)
+   document.write('<br>Salary :'+emp1.salary)
+   
+   </script>
+
+
+<h1>third type of object creation by json object</h1>
+<script>
+document.write('<h2>By using json</h2>')
+document.write('Name :'+e1.name);
+document.write('<br>Age :'+e1.age)
+document.write('<br>Salary :'+e1.salary)
+document.write('<br>Name :'+e2.name);
+document.write('<br>Age :'+e2.age)
+document.write('<br>Salary :'+e2.salary)
+
+</script>
+</body>
+</html>
